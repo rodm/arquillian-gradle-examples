@@ -1,0 +1,64 @@
+
+plugins {
+    id 'org.gradle.java'
+}
+
+ext {
+    java8Home = project.findProperty('java8.home') ?: '/opt/jdk1.8.0_162'
+    glassfish4Home = project.findProperty('glassfish4.home')
+    glassfish5Home = project.findProperty('glassfish5.home')
+    wildfly10Home = project.findProperty('wildfly10.home')
+    wildfly11Home = project.findProperty('wildfly11.home')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'javax', name: 'javaee-api', version: '7.0'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    testCompile group: 'org.jboss.arquillian', name: 'arquillian-bom', version: '1.4.0.Final'
+    testCompile group: 'org.jboss.arquillian.junit', name: 'arquillian-junit-container'
+    testCompile group: 'org.jboss.shrinkwrap.descriptors', name: 'shrinkwrap-descriptors-impl-javaee'
+    testCompile group: 'org.arquillian.container', name: 'arquillian-container-chameleon', version: '1.0.0.CR2'
+
+    testRuntime group: 'org.jboss.resteasy', name: 'resteasy-client', version: '3.1.4.Final'
+    testRuntime group: 'org.jboss.resteasy', name: 'resteasy-jaxb-provider', version: '3.1.4.Final'
+}
+
+test.enabled = false
+
+task testGlassFish41(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using GlassFish 4.1'
+    group = 'verification'
+    environment 'JAVA_HOME', java8Home
+    systemProperty 'arquillian.launch', 'glassfish41'
+    systemProperty 'glassfish.home', glassfish4Home
+}
+
+task testGlassFish50(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using GlassFish 5.0'
+    group = 'verification'
+    environment 'JAVA_HOME', java8Home
+    systemProperty 'arquillian.launch', 'glassfish50'
+    systemProperty 'glassfish.home', glassfish5Home
+}
+
+task testWildFly101(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using WildFly 10.1'
+    group = 'verification'
+    environment 'JAVA_HOME', java8Home
+    systemProperty 'arquillian.launch', 'wildfly101'
+    systemProperty 'jboss.home', wildfly10Home
+}
+
+task testWildFly11(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using WildFly 11.0'
+    group = 'verification'
+    environment 'JAVA_HOME', java8Home
+    systemProperty 'arquillian.launch', 'wildfly11'
+    systemProperty 'jboss.home', wildfly11Home
+}
