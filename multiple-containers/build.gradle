@@ -1,0 +1,39 @@
+
+plugins {
+    id 'org.gradle.java'
+}
+
+ext {
+    wildflyHome = project.findProperty('wildfly11.home')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'javax', name: 'javaee-api', version: '7.0'
+    compile project(':examples')
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.jboss.arquillian', name: 'arquillian-bom', version: '1.4.0.Final'
+    testCompile group: 'org.jboss.arquillian.junit', name: 'arquillian-junit-container'
+    testCompile group: 'org.jboss.shrinkwrap.resolver', name: 'shrinkwrap-resolver-depchain'
+    testCompile group: 'org.arquillian.container', name: 'arquillian-container-chameleon', version: '1.0.0.CR2'
+}
+
+task copyConfigurationForContainer1(type: Copy) {
+    from "${wildflyHome}/standalone"
+    into 'build/configuration/container1'
+}
+
+task copyConfigurationForContainer2(type: Copy) {
+    from "${wildflyHome}/standalone"
+    into 'build/configuration/container2'
+}
+
+test {
+    dependsOn copyConfigurationForContainer1
+    dependsOn copyConfigurationForContainer2
+    systemProperty 'jboss.home', wildflyHome
+}

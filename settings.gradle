@@ -4,3 +4,4 @@ enableFeaturePreview('IMPROVED_POM_SUPPORT')
 rootProject.name = 'arquillian-gradle-examples'
 
 include 'examples'
+include 'multiple-containers'
