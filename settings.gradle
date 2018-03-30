@@ -5,3 +5,4 @@ rootProject.name = 'arquillian-gradle-examples'
 
 include 'examples'
 include 'multiple-containers'
+include 'multiple-deployments'
