@@ -1,8 +1,4 @@
 
-ext {
-    wildflyHome = project.findProperty('wildfly11.home')
-}
-
 dependencies {
     compile project(':examples')
     compile project(':util')
@@ -11,17 +7,17 @@ dependencies {
 }
 
 task copyConfigurationForContainer1(type: Copy) {
-    from "${wildflyHome}/standalone"
+    from "${wildfly11Home}/standalone"
     into 'build/configuration/container1'
 }
 
 task copyConfigurationForContainer2(type: Copy) {
-    from "${wildflyHome}/standalone"
+    from "${wildfly11Home}/standalone"
     into 'build/configuration/container2'
 }
 
 test {
     dependsOn copyConfigurationForContainer1
     dependsOn copyConfigurationForContainer2
-    systemProperty 'jboss.home', wildflyHome
+    systemProperty 'jboss.home', wildfly11Home
 }

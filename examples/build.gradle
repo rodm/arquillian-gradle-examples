@@ -1,12 +1,4 @@
 
-ext {
-    java8Home = project.findProperty('java8.home') ?: '/opt/jdk1.8.0_162'
-    glassfish4Home = project.findProperty('glassfish4.home')
-    glassfish5Home = project.findProperty('glassfish5.home')
-    wildfly10Home = project.findProperty('wildfly10.home')
-    wildfly11Home = project.findProperty('wildfly11.home')
-}
-
 dependencies {
     testCompile project(':util')
     testCompile group: 'org.jboss.shrinkwrap.descriptors', name: 'shrinkwrap-descriptors-impl-javaee'

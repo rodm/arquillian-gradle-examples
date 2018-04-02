@@ -1,13 +1,9 @@
 
-ext {
-    wildflyHome = project.findProperty('wildfly11.home')
-}
-
 dependencies {
     compile project(':util')
 }
 
 test {
     systemProperty 'arquillian.launch', 'wildfly11'
-    systemProperty 'jboss.home', wildflyHome
+    systemProperty 'jboss.home', wildfly11Home
 }
