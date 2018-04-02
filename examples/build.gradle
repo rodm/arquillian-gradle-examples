@@ -1,8 +1,4 @@
 
-plugins {
-    id 'org.gradle.java'
-}
-
 ext {
     java8Home = project.findProperty('java8.home') ?: '/opt/jdk1.8.0_162'
     glassfish4Home = project.findProperty('glassfish4.home')
@@ -11,19 +7,9 @@ ext {
     wildfly11Home = project.findProperty('wildfly11.home')
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    compile group: 'javax', name: 'javaee-api', version: '7.0'
-
     testCompile project(':util')
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'org.jboss.arquillian', name: 'arquillian-bom', version: '1.4.0.Final'
-    testCompile group: 'org.jboss.arquillian.junit', name: 'arquillian-junit-container'
     testCompile group: 'org.jboss.shrinkwrap.descriptors', name: 'shrinkwrap-descriptors-impl-javaee'
-    testCompile group: 'org.arquillian.container', name: 'arquillian-container-chameleon', version: '1.0.0.CR2'
 
     testRuntime group: 'org.jboss.resteasy', name: 'resteasy-client', version: '3.1.4.Final'
     testRuntime group: 'org.jboss.resteasy', name: 'resteasy-jaxb-provider', version: '3.1.4.Final'
