@@ -18,8 +18,8 @@ repositories {
 dependencies {
     compile group: 'javax', name: 'javaee-api', version: '7.0'
 
+    testCompile project(':util')
     testCompile group: 'junit', name: 'junit', version: '4.12'
-
     testCompile group: 'org.jboss.arquillian', name: 'arquillian-bom', version: '1.4.0.Final'
     testCompile group: 'org.jboss.arquillian.junit', name: 'arquillian-junit-container'
     testCompile group: 'org.jboss.shrinkwrap.descriptors', name: 'shrinkwrap-descriptors-impl-javaee'

@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 
 import java.net.URL;
 
-import static arquillian.servlet.StreamReaderUtil.readAllAndClose;
+import static arquillian.util.StreamReader.readAllAndClose;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Arquillian.class)
