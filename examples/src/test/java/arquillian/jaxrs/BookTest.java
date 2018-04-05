@@ -8,6 +8,8 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -15,6 +17,7 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.StringReader;
 import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
@@ -60,5 +63,19 @@ public class BookTest {
 
         String responseString = response.replaceAll("<\\?xml.*\\?>", "").trim();
         assertEquals("<book><author>George Orwell</author><id>1</id><title>1984</title></book>", responseString);
+    }
+
+    @Test
+    public void getBookByIdAsJson() {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target(deploymentUrl.toString() + RESOURCE_PREFIX + "/book/1");
+        Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
+
+        String response = builder.get(String.class);
+
+        JsonObject object = Json.createReader(new StringReader(response)).readObject();
+        assertEquals(1, object.getInt("id"));
+        assertEquals("1984", object.getString("title"));
+        assertEquals("George Orwell", object.getString("author"));
     }
 }

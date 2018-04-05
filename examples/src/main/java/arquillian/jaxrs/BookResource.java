@@ -25,7 +25,7 @@ public class BookResource {
 
     @GET
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Book getBook(@PathParam("id") long id) {
         return findBookById(id);
     }

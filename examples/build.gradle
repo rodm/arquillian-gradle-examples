@@ -5,6 +5,7 @@ dependencies {
 
     testRuntime group: 'org.jboss.resteasy', name: 'resteasy-client', version: '3.1.4.Final'
     testRuntime group: 'org.jboss.resteasy', name: 'resteasy-jaxb-provider', version: '3.1.4.Final'
+    testRuntime group: 'org.glassfish', name: 'javax.json', version: '1.0.4'
 }
 
 test.enabled = false
