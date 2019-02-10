@@ -4,6 +4,6 @@ dependencies {
 }
 
 test {
-    systemProperty 'arquillian.launch', 'wildfly11'
-    systemProperty 'jboss.home', wildfly11Home
+    systemProperty 'arquillian.launch', 'wildfly15'
+    systemProperty 'jboss.home', wildfly15Home
 }

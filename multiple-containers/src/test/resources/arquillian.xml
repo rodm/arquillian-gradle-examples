@@ -12,7 +12,7 @@
     <group qualifier="group" default="true">
         <container qualifier="container1" default="true">
             <configuration>
-                <property name="chameleonTarget">wildfly:11.0.0.Final:managed</property>
+                <property name="chameleonTarget">wildfly:15.0.0.Final:managed</property>
                 <property name="jbossHome">${jboss.home}</property>
                 <property name="javaVmArguments">-Djboss.socket.binding.port-offset=100 -Djboss.server.base.dir=build/configuration/container1</property>
                 <property name="managementPort">10090</property>
@@ -21,7 +21,7 @@
         </container>
         <container qualifier="container2">
             <configuration>
-                <property name="chameleonTarget">wildfly:11.0.0.Final:managed</property>
+                <property name="chameleonTarget">wildfly:15.0.0.Final:managed</property>
                 <property name="jbossHome">${jboss.home}</property>
                 <property name="javaVmArguments">-Djboss.socket.binding.port-offset=200 -Djboss.server.base.dir=build/configuration/container2</property>
                 <property name="managementPort">10190</property>

@@ -27,19 +27,19 @@
         </configuration>
     </container>
 
-    <!-- WildFly 10.1 -->
-    <container qualifier="wildfly101">
+    <!-- WildFly 13.0 -->
+    <container qualifier="wildfly13">
         <configuration>
-            <property name="chameleonTarget">wildfly:10.1.0.Final:managed</property>
+            <property name="chameleonTarget">wildfly:13.0.0.Final:managed</property>
             <property name="jbossHome">${jboss.home}</property>
             <property name="serverConfig">standalone-full.xml</property>
         </configuration>
     </container>
 
-    <!-- WildFly 11.0 -->
-    <container qualifier="wildfly11">
+    <!-- WildFly 15.0 -->
+    <container qualifier="wildfly15">
         <configuration>
-            <property name="chameleonTarget">wildfly:11.0.0.Final:managed</property>
+            <property name="chameleonTarget">wildfly:15.0.0.Final:managed</property>
             <property name="jbossHome">${jboss.home}</property>
             <property name="serverConfig">standalone-full.xml</property>
         </configuration>

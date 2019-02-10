@@ -7,17 +7,17 @@ dependencies {
 }
 
 task copyConfigurationForContainer1(type: Copy) {
-    from "${wildfly11Home}/standalone"
+    from "${wildfly15Home}/standalone"
     into 'build/configuration/container1'
 }
 
 task copyConfigurationForContainer2(type: Copy) {
-    from "${wildfly11Home}/standalone"
+    from "${wildfly15Home}/standalone"
     into 'build/configuration/container2'
 }
 
 test {
     dependsOn copyConfigurationForContainer1
     dependsOn copyConfigurationForContainer2
-    systemProperty 'jboss.home', wildfly11Home
+    systemProperty 'jboss.home', wildfly15Home
 }

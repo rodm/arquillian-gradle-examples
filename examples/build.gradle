@@ -28,18 +28,18 @@ task testGlassFish50(type: Test, dependsOn: testClasses) {
     systemProperty 'glassfish.home', glassfish5Home
 }
 
-task testWildFly101(type: Test, dependsOn: testClasses) {
-    description = 'Runs the tests using WildFly 10.1'
+task testWildFly13(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using WildFly 13 (Java EE 7)'
     group = 'verification'
     environment 'JAVA_HOME', java8Home
-    systemProperty 'arquillian.launch', 'wildfly101'
-    systemProperty 'jboss.home', wildfly10Home
+    systemProperty 'arquillian.launch', 'wildfly13'
+    systemProperty 'jboss.home', wildfly13Home
 }
 
-task testWildFly11(type: Test, dependsOn: testClasses) {
-    description = 'Runs the tests using WildFly 11.0'
+task testWildFly15(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using WildFly 15 (Java EE 8)'
     group = 'verification'
     environment 'JAVA_HOME', java8Home
-    systemProperty 'arquillian.launch', 'wildfly11'
-    systemProperty 'jboss.home', wildfly11Home
+    systemProperty 'arquillian.launch', 'wildfly15'
+    systemProperty 'jboss.home', wildfly15Home
 }
