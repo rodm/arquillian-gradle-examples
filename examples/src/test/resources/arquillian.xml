@@ -18,10 +18,10 @@
         </configuration>
     </container>
 
-    <!-- GlassFish 5.0 -->
-    <container qualifier="glassfish50">
+    <!-- GlassFish 5.1 -->
+    <container qualifier="glassfish51">
         <configuration>
-            <property name="chameleonTarget">glassfish:5.0:managed</property>
+            <property name="chameleonTarget">glassfish:5.1:managed</property>
             <property name="glassFishHome">${glassfish.home}</property>
             <property name="outputToConsole">true</property>
         </configuration>

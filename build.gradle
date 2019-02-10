@@ -2,7 +2,7 @@
 ext {
     java8Home = project.findProperty('java8.home') ?: '/opt/jdk1.8.0_202'
     glassfish4Home = project.findProperty('glassfish4.home')
-    glassfish5Home = project.findProperty('glassfish5.home')
+    glassfish51Home = project.findProperty('glassfish51.home')
     wildfly13Home = project.findProperty('wildfly13.home')
     wildfly15Home = project.findProperty('wildfly15.home')
 }

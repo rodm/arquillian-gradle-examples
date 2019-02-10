@@ -20,12 +20,12 @@ task testGlassFish41(type: Test, dependsOn: testClasses) {
     systemProperty 'glassfish.home', glassfish4Home
 }
 
-task testGlassFish50(type: Test, dependsOn: testClasses) {
-    description = 'Runs the tests using GlassFish 5.0'
+task testGlassFish51(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using GlassFish 5.1'
     group = 'verification'
     environment 'JAVA_HOME', java8Home
-    systemProperty 'arquillian.launch', 'glassfish50'
-    systemProperty 'glassfish.home', glassfish5Home
+    systemProperty 'arquillian.launch', 'glassfish51'
+    systemProperty 'glassfish.home', glassfish51Home
 }
 
 task testWildFly13(type: Test, dependsOn: testClasses) {
