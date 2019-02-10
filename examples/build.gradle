@@ -43,3 +43,13 @@ task testWildFly15(type: Test, dependsOn: testClasses) {
     systemProperty 'arquillian.launch', 'wildfly15'
     systemProperty 'jboss.home', wildfly15Home
 }
+
+task testLiberty(type: Test, dependsOn: testClasses) {
+    description = 'Runs the tests using Open Liberty 18.x'
+    group = 'verification'
+    environment 'JAVA_HOME', java8Home
+    systemProperty 'arquillian.launch', 'liberty'
+    systemProperty 'liberty.home', libertyHome
+    
+    exclude '**/jpa/*'
+}

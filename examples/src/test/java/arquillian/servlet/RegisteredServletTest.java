@@ -39,7 +39,7 @@ public class RegisteredServletTest {
 
     @Test
     public void shouldBeAbleToInvokeServletInDeployedWebApp() throws Exception {
-        String requestUrl = deploymentUrl + "/test";
+        String requestUrl = deploymentUrl + "test";
         String body = StreamReader.readAllAndClose(new URL(requestUrl).openStream());
 
         assertEquals("Verify that the servlet was deployed and returns expected result", "Hello, world", body);

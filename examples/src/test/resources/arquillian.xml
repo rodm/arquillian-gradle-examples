@@ -44,4 +44,16 @@
             <property name="serverConfig">standalone-full.xml</property>
         </configuration>
     </container>
+
+    <!-- OpenLiberty 18.x -->
+    <container qualifier="liberty">
+        <configuration>
+            <property name="chameleonTarget">liberty:18.0.0.4:managed</property>
+            <property name="chameleonContainerConfigurationFile">liberty.yaml</property>
+            <property name="wlpHome">${liberty.home}</property>
+            <property name="serverName">defaultServer</property>
+            <property name="httpPort">9080</property>
+            <property name="addLocalConnector">true</property>
+        </configuration>
+    </container>
 </arquillian>

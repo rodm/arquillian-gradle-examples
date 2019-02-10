@@ -5,6 +5,7 @@ ext {
     glassfish51Home = project.findProperty('glassfish51.home')
     wildfly13Home = project.findProperty('wildfly13.home')
     wildfly15Home = project.findProperty('wildfly15.home')
+    libertyHome = project.findProperty('liberty.home')
 }
 
 subprojects {
