@@ -1,0 +1,24 @@
+
+plugins {
+    id 'org.gradle.war'
+}
+
+repositories {
+    maven { url 'https://repo.gradle.org/gradle/libs-releases' }
+}
+
+dependencies {
+    testCompileOnly group: 'javax', name: 'javaee-api', version: '7.0'
+
+    testCompile group: 'org.arquillian.container', name: 'arquillian-chameleon-junit-container-starter', version: '1.0.0.CR6'
+    testCompile group: 'org.arquillian.container', name: 'arquillian-chameleon-file-deployment', version: '1.0.0.CR6'
+    testCompile group: 'org.arquillian.container', name: 'arquillian-chameleon-gradle-build-deployment', version: '1.0.0.CR6'
+}
+
+war {
+    archiveName = 'hello.war'
+}
+
+test {
+    dependsOn 'assemble'
+}

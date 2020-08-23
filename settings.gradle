@@ -4,6 +4,7 @@ enableFeaturePreview('IMPROVED_POM_SUPPORT')
 rootProject.name = 'arquillian-gradle-examples'
 
 include 'examples'
+include 'chameleon'
 include 'multiple-containers'
 include 'multiple-deployments'
 include 'util'
