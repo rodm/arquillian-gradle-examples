@@ -1,0 +1,13 @@
+
+dependencies {
+    testCompileOnly group: 'javax', name: 'javaee-api', version: '7.0'
+    testCompile group: 'org.jboss.arquillian.extension', name: 'arquillian-persistence-dbunit', version: '1.0.0.Alpha7'
+
+    testRuntime group: 'fish.payara.extras', name: 'payara-embedded-all', version: '4.1.2.181'
+    testRuntime group: 'com.h2database', name: 'h2', version: '1.4.194'
+}
+
+test {
+    environment 'JAVA_HOME', java8Home
+    systemProperty 'arquillian.launch', 'payara-embedded'
+}

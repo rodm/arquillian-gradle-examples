@@ -8,3 +8,5 @@ include 'chameleon'
 include 'multiple-containers'
 include 'multiple-deployments'
 include 'util'
+
+include 'servers/payara/embedded'
