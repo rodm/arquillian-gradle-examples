@@ -1,0 +1,15 @@
+
+- name: Liberty
+  versionExpression: [18.*|19.*]
+  adapters:
+    - type: remote
+      coordinates: io.openliberty.arquillian:arquillian-liberty-remote:1.0.3
+      adapterClass: io.openliberty.arquillian.remote.WLPRemoteContainer
+    - type: managed
+      coordinates: io.openliberty.arquillian:arquillian-liberty-managed:1.0.3
+      adapterClass: io.openliberty.arquillian.managed.WLPManagedContainer
+      configuration:
+        wlpHome: ${dist}
+  defaultType: managed
+  dist:
+    coordinates: io.openliberty:openliberty-javaee8:zip:${version}

@@ -1,0 +1,29 @@
+
+plugins {
+    id 'net.wasdev.wlp.gradle.plugins.Liberty' version '2.6.3'
+}
+
+dependencies {
+    testCompile project(':util')
+    testCompile group: 'javax', name: 'javaee-api', version: '7.0'
+
+    testRuntime group: 'org.jboss.resteasy', name: 'resteasy-client', version: '3.1.4.Final'
+    testRuntime group: 'org.jboss.resteasy', name: 'resteasy-jaxb-provider', version: '3.1.4.Final'
+    testRuntime group: 'org.glassfish', name: 'javax.json', version: '1.0.4'
+}
+
+liberty {
+    installDir = libertyHome
+    userDir = "${buildDir}/wlp/usr"
+
+    server {
+        configFile = file('src/main/liberty/config/server.xml')
+    }
+}
+
+// Tests run and pass with OpenLiberty 18.x but not with 20.x
+test {
+    environment 'JAVA_HOME', java8Home
+    systemProperty 'arquillian.launch', 'liberty'
+    systemProperty 'javax.net.ssl.trustStore', "${buildDir}/wlp/usr/servers/defaultServer/resources/security/key.jks"
+}

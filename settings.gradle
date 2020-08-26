@@ -9,4 +9,5 @@ include 'multiple-containers'
 include 'multiple-deployments'
 include 'util'
 
-include 'servers/payara/embedded'
+include 'servers:liberty:remote'
+include 'servers:payara:embedded'
